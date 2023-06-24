@@ -115,6 +115,26 @@ void verLista(Lista lista[], int tam) {
 	}
 }
 
+void excluirLista(Lista lista[], int& tam) {
+	int listaExcluir;
+	cout << "Digite o número da lista que deseja excluir: ";
+	cin >> listaExcluir;
+
+	if (listaExcluir >= 0 && listaExcluir < tam) {
+		for (int i = listaExcluir; i < tam - 1; i++) {
+			lista[i] = lista[i + 1];
+		}
+
+		tam--;
+
+		cout << "Lista excluída com sucesso.\n";
+	}
+	else {
+		cout << "Número de lista inválido.\n";
+	}
+}
+
+
 int main()
 {
 	int tam = 1;
@@ -131,8 +151,7 @@ int main()
 		cout << "\t[2] Escrever lista de palavras" << endl;
 		cout << "\t[3] Ver lista(s)" << endl;
 		cout << "\t[4] Deletar lista(s)" << endl;
-		cout << "\t[5] Instrucoes" << endl;
-		cout << "\t[6] Sair" << endl;
+		cout << "\t[5] Sair" << endl;
 		cin >> opcao;
 		system("cls");
 
@@ -164,12 +183,11 @@ int main()
 			system("cls");
 			break;
 		case 4:
+			excluirLista(lista, tam);
+			system("pause");
 			system("cls");
 			break;
 		case 5:
-			system("cls");
-			break;
-		case 6:
 			escreverArquivo(lista, tam);
 			system("pause");
 			system("cls");
