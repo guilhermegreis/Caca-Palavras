@@ -33,7 +33,7 @@ void ler_arquivo(Lista lista[], int tam) {
 				}
 			}
 			lista[i].cont = pos;
-	}
+		}
 	}
 	arquivo.close();
 }
@@ -66,8 +66,8 @@ void addPalavras(Lista lista[], int tamanhoLista) {
 		if (palavra == "fim") {
 			break;
 		}
-		lista[tamanhoLista-1].palavras[cont++] = palavra;
-		
+		lista[tamanhoLista - 1].palavras[cont++] = palavra;
+
 		if (cont == max_palavras) {
 			cout << "A lista esta cheia, nao eh possivel adicionar mais palavras.\n";
 			break;
@@ -76,7 +76,7 @@ void addPalavras(Lista lista[], int tamanhoLista) {
 }
 
 Lista* aumentarVetor(Lista* vetor, int& tamanhoAtual, int novoTamanho) {
-	Lista* novoVetor = new Lista[tamanhoAtual+novoTamanho];
+	Lista* novoVetor = new Lista[tamanhoAtual + novoTamanho];
 
 	for (int i = 0; i < tamanhoAtual; i++) {
 		novoVetor[i] = vetor[i];
@@ -110,14 +110,14 @@ void verLista(Lista lista[], int tam) {
 	for (int i = 0; i < tam - 1; i++) {
 		cout << "Lista " << i << ":" << endl;
 		for (int j = 0; j < max_palavras; j++) {
-		cout << " " << lista[i].palavras[j] << endl;
+			cout << " " << lista[i].palavras[j] << endl;
 		}
 	}
 }
 
 void excluirLista(Lista lista[], int& tam) {
 	int listaExcluir;
-	cout << "Digite o número da lista que deseja excluir: ";
+	cout << "Digite o numero da lista que deseja excluir: ";
 	cin >> listaExcluir;
 
 	if (listaExcluir >= 0 && listaExcluir < tam) {
@@ -127,7 +127,7 @@ void excluirLista(Lista lista[], int& tam) {
 
 		tam--;
 
-		cout << "Lista excluída com sucesso.\n";
+		cout << "Lista excluida com sucesso.\n";
 	}
 	else {
 		cout << "Número de lista inválido.\n";
@@ -142,7 +142,7 @@ int main()
 	Lista* lista = new Lista[tam];
 	int opcao = 0;
 	string resposta;
-	
+
 	cont = contPosicao();
 	cout << cont;
 	while (opcao != 6) {
@@ -172,7 +172,7 @@ int main()
 
 			cout << "Lista adicionada:\n";
 			for (int i = 0; i < max_palavras; i++) {
-				cout << "- " << lista[cont-1].palavras[i] << endl;
+				cout << "- " << lista[cont - 1].palavras[i] << endl;
 			}
 			system("pause");
 			system("cls");
@@ -199,4 +199,3 @@ int main()
 
 	}
 }
-
